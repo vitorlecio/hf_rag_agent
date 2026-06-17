@@ -1,54 +1,54 @@
 # HF RAG Agent
 
-**A documentation Q\&A agent I measured instead of assumed.** It answers natural-language questions about the Hugging Face Transformers docs, and along the way it puts a common "best practice" — cross-encoder reranking — on trial against a hand-built evaluation set. The reranker lost.
+**A documentation Q&A agent I measured instead of assumed.** It answers natural-language questions about the Hugging Face Transformers docs, and along the way it puts a common "best practice" — cross-encoder reranking — on trial against a hand-built evaluation set. The reranker lost.
 
-Under the hood it's a conversational RAG agent (LangGraph \+ ChromaDB, dense retrieval with an optional cross-encoder rerank stage) built around one question I wanted a real answer to: *does two-stage retrieval actually beat plain dense retrieval on this corpus, and is the extra cost worth it?* The chunker, the eval harness, and the agent all exist to make that question answerable with evidence rather than vibes.
+Under the hood it's a conversational RAG agent (LangGraph + ChromaDB, dense retrieval with an optional cross-encoder rerank stage) built around one question I wanted a real answer to: *does two-stage retrieval actually beat plain dense retrieval on this corpus, and is the extra cost worth it?* The chunker, the eval harness, and the agent all exist to make that question answerable with evidence rather than vibes.
 
 ---
 
-\`\`\`mermaid  
-flowchart TB  
-    subgraph ingest\["Ingestion · build time"\]  
-        direction LR  
-        GH\["GitHub raw docs\<br/\>pinned to main SHA"\] \--\> F\["Fetcher"\] \--\> C\["Chunker\<br/\>heading-aware · 200 tok"\] \--\> E\["Embedder"\]  
+```mermaid
+flowchart TB
+    subgraph ingest["Ingestion · build time"]
+        direction LR
+        GH["GitHub raw docs<br/>pinned to main SHA"] --> F["Fetcher"] --> C["Chunker<br/>heading-aware · 200 tok"] --> E["Embedder"]
     end
 
-    DB\[("ChromaDB\<br/\>cosine · per-embedder collection")\]
+    DB[("ChromaDB<br/>cosine · per-embedder collection")]
 
-    subgraph retrieval\["Retrieval"\]  
-        direction TB  
-        D\["DenseRetriever\<br/\>top-20 cosine"\]  
-        R\["RerankingRetriever\<br/\>decorator → top-5 cross-encoder"\]  
-        P{{"Retriever Protocol"}}  
-        D \-. implements .-\> P  
-        R \-. implements .-\> P  
-        R \-. wraps .-\> D  
+    subgraph retrieval["Retrieval"]
+        direction TB
+        D["DenseRetriever<br/>top-20 cosine"]
+        R["RerankingRetriever<br/>decorator to top-5 cross-encoder"]
+        P{{"Retriever Protocol"}}
+        D -. implements .-> P
+        R -. implements .-> P
+        R -. wraps .-> D
     end
 
-    subgraph agentbox\["Agent"\]  
-        direction TB  
-        QR\["Query rewriter\<br/\>(follow-up turns)"\] \--\> LG\["LangGraph ReAct agent\<br/\>search\_docs tool"\]  
+    subgraph agentbox["Agent"]
+        direction TB
+        QR["Query rewriter<br/>(follow-up turns)"] --> LG["LangGraph ReAct agent<br/>search_docs tool"]
     end
 
-    subgraph evalbox\["Evaluation · offline · deterministic"\]  
-        direction TB  
-        ES\["Frozen eval set"\] \--\> RUN\["Comparison runner"\] \--\> MET\["MRR · hit-rate · precision\<br/\>+ bootstrap CI"\]  
+    subgraph evalbox["Evaluation · offline · deterministic"]
+        direction TB
+        ES["Frozen eval set"] --> RUN["Comparison runner"] --> MET["MRR · hit-rate · precision<br/>+ bootstrap CI"]
     end
 
-    USER(\["User"\]) \--\> QR  
-    E \--\> DB  
-    DB \--\> D  
-    P \--\> LG  
-    P \--\> RUN  
-    LG \--\> CLI\["CLI / REPL"\] \--\> USER  
-\`\`\`
+    USER(["User"]) --> QR
+    E --> DB
+    DB --> D
+    P --> LG
+    P --> RUN
+    LG --> CLI["CLI / REPL"] --> USER
+```
 
 ---
 
 ## The short version
 
-- **What it is** — a multi-turn RAG agent over \~18 pages of HF Transformers docs (training, PEFT, quantization, task guides), with conversational follow-ups and multi-hop retrieval.  
-- **The interesting part** — I added cross-encoder reranking expecting a lift. On a 320-item frozen eval set it *lowered* MRR, hit rate, and precision across the board, so the default is `use_reranking=False`, set by the data.  
+- **What it is** — a multi-turn RAG agent over ~18 pages of HF Transformers docs (training, PEFT, quantization, task guides), with conversational follow-ups and multi-hop retrieval.
+- **The interesting part** — I added cross-encoder reranking expecting a lift. On a 320-item frozen eval set it *lowered* MRR, hit rate, and precision across the board, so the default is `use_reranking=False`, set by the data.
 - **Why it isn't just a tutorial** — every design choice has a measured or reasoned justification, the negative result is reported in full (including a caveat about how the eval set biases against reranking), and the retrieval comparison runs offline and deterministically with bootstrap confidence intervals.
 
 ---
@@ -60,17 +60,17 @@ I expected cross-encoder reranking to help, and the theory was reasonable. Gener
 The data disagreed. On the 320-item frozen eval set, dense-only beats dense+rerank on every metric:
 
 | Metric | Dense (k=5) | Rerank (k=5) |
-| :---- | :---- | :---- |
-| MRR | 0.795 \[0.759, 0.829\] | 0.712 \[0.671, 0.755\] |
-| Hit Rate | 0.950 \[0.925, 0.972\] | 0.853 \[0.819, 0.894\] |
-| Precision@k | 0.190 \[0.185, 0.194\] | 0.171 \[0.164, 0.179\] |
+|---|---|---|
+| MRR | 0.795 [0.759, 0.829] | 0.712 [0.671, 0.755] |
+| Hit Rate | 0.950 [0.925, 0.972] | 0.853 [0.819, 0.894] |
+| Precision@k | 0.190 [0.185, 0.194] | 0.171 [0.164, 0.179] |
 
-A stratified slice (code-containing vs pure-prose chunks) confirms the modality gap is real but shows reranking does not close it:
+A stratified slice (code-containing vs. pure-prose chunks) confirms the modality gap is real but shows reranking does not close it:
 
 | Slice | Dense MRR | Rerank MRR | Drop from reranking |
-| :---- | :---- | :---- | :---- |
-| Code-containing (n=211, 66%) | 0.773 \[0.731, 0.814\] | 0.652 \[0.596, 0.701\] | −0.121 |
-| Pure-prose (n=109, 34%) | 0.837 \[0.775, 0.890\] | 0.829 \[0.765, 0.892\] | −0.008 |
+|---|---|---|---|
+| Code-containing (n=211, 66%) | 0.773 [0.731, 0.814] | 0.652 [0.596, 0.701] | −0.121 |
+| Pure-prose (n=109, 34%) | 0.837 [0.775, 0.890] | 0.829 [0.765, 0.892] | −0.008 |
 
 Code chunks are harder to retrieve than prose for *both* methods, which supports the modality-gap hypothesis. But reranking hurts code chunks far more than prose, the opposite of what the cross-attention theory predicted.
 
@@ -80,27 +80,83 @@ Code chunks are harder to retrieve than prose for *both* methods, which supports
 
 ## Demo
 
-*\[Add a short transcript or asciinema recording here. Include one multi-hop question (e.g. a training → PEFT → quantization chain) and one conversational follow-up that exercises query rewriting.\]*
+A real two-turn session (`uv run hf-chat`), showing multi-hop retrieval on the first turn and query rewriting picking up an implicit reference on the second:
+
+**You:** How do I apply LoRA with PEFT and then quantize the model with bitsandbytes?
+
+**Agent:** To apply LoRA with PEFT:
+
+1. Install PEFT:
+   ```
+   pip install -U peft
+   ```
+2. Load your model and create a LoRA config, then add the adapter to the model:
+   ```python
+   from peft import LoraConfig, TaskType
+   from transformers import AutoModelForCausalLM
+
+   model = AutoModelForCausalLM.from_pretrained("your-model-name")
+
+   lora_config = LoraConfig(
+       task_type=TaskType.CAUSAL_LM,
+       inference_mode=False,
+       r=8,
+       lora_alpha=32,
+       lora_dropout=0.1,
+   )
+
+   model.add_adapter(lora_config, adapter_name="my_adapter")
+   ```
+
+For quantizing the model with bitsandbytes:
+
+1. Use `BitsAndBytesConfig` when loading the model to quantize it in 4-bit or 8-bit:
+   ```python
+   from transformers import AutoModelForCausalLM, BitsAndBytesConfig
+
+   quantization_config = BitsAndBytesConfig(load_in_4bit=True)  # or load_in_8bit=True
+
+   model = AutoModelForCausalLM.from_pretrained(
+       "your-model-name",
+       device_map="auto",
+       quantization_config=quantization_config
+   )
+   ```
+
+You can combine these by first loading the quantized model and then adding the LoRA adapter with PEFT.
+
+This information is from the Parameter-efficient fine-tuning and Bitsandbytes Quantization Examples sections.
+
+---
+
+**You:** What if I wanted to use GPTQ instead, would the PEFT setup change?
+
+**Agent:** The PEFT setup does not fundamentally change when using GPTQ for quantization instead of bitsandbytes. You still create and add LoRA adapters with PEFT as usual.
+
+However, GPTQ requires installing the GPT-QModel package and setting up a `GPTQConfig` for quantization, which involves specifying the number of bits, a calibration dataset, and a tokenizer.
+
+You would quantize the model using `GPTQConfig` and then apply PEFT LoRA adapters on top of the quantized model.
+
+So, the main difference is in the quantization step and dependencies, but the PEFT adapter setup remains the same.
+
+This is based on the GPTQ and Parameter-efficient fine-tuning sections.
+
+The second question never mentions LoRA, PEFT, or bitsandbytes by name — `rewrite_query()` condenses turn one into a standalone question before retrieval runs, which is what lets the agent connect "GPTQ instead" back to the original setup.
 
 ---
 
 ## Architecture
 
-src/hf\_rag/
-
-  ingestion/   Fetcher → Chunker → Embedder (ChromaDB-backed)
-
+```
+src/hf_rag/
+  ingestion/   Fetcher -> Chunker -> Embedder (ChromaDB-backed)
   retrieval/   DenseRetriever, RerankingRetriever (decorator over Dense), both implement the Retriever Protocol
-
   eval/        frozen eval-set generation, MRR / hit-rate / precision, bootstrap CI, comparison runner
-
-  agent/       LangGraph agent, search\_docs tool, system prompt, follow-up query rewriter
-
+  agent/       LangGraph agent, search_docs tool, system prompt, follow-up query rewriter
   chat/cli.py  interactive REPL
-
 notebooks/     corpus inspection; retrieval eval (unchunked vs chunked, OpenAI vs local, dense vs rerank)
-
 tests/         pytest, unit tests only (no LLM-behavior tests)
+```
 
 The seam that holds everything together is the `Retriever` Protocol. `DenseRetriever` and `RerankingRetriever` both implement it, reranking is a decorator over dense, and the agent depends only on the Protocol. Swapping retrieval strategy is `build_agent(use_reranking=True)` and touches no agent code, which is also what makes the dense-vs-rerank experiment a clean one-variable comparison.
 
@@ -108,21 +164,20 @@ The seam that holds everything together is the `Retriever` Protocol. `DenseRetri
 
 ## Quickstart
 
+```bash
 uv sync
+# .env: OPENAI_API_KEY=...   (optional: GITHUB_TOKEN)
 
-\# .env: OPENAI\_API\_KEY=...   (optional: GITHUB\_TOKEN)
+uv run hf-fetch    # pin upstream docs at the current main SHA and download
+uv run hf-chunk    # heading-aware, token-budgeted chunking
+uv run hf-embed    # embed into ChromaDB (OpenAI or local MiniLM)
+uv run hf-eval     # dense-vs-rerank comparison with bootstrap CIs
+uv run hf-chat     # interactive REPL
 
-uv run hf-fetch    \# pin upstream docs at the current main SHA and download
+uv run pytest      # tests
+```
 
-uv run hf-chunk    \# heading-aware, token-budgeted chunking
-
-uv run hf-embed    \# embed into ChromaDB (OpenAI or local MiniLM)
-
-uv run hf-eval     \# dense-vs-rerank comparison with bootstrap CIs
-
-uv run hf-chat     \# interactive REPL
-
-uv run pytest      \# tests
+See [CONTRIBUTING.md](CONTRIBUTING.md) for project layout, code conventions, and how the corpus/eval set get regenerated together.
 
 ---
 
@@ -138,7 +193,7 @@ Grouped by stage. Each is a choice I can defend, including the ones shaped by ru
 
 **Heading-aware chunking** — pages split on `##`/`###` headings, then token-split within a section using MiniLM's tokenizer at a 200-token budget with zero overlap. Zero overlap (not the more common small overlap) is deliberate: each chunk is a clean, non-redundant unit for eval labeling, where overlap would let one answer span several "relevant" chunk IDs and muddy MRR and precision.
 
-**Tables kept whole, code split at fences** — tables are never split, since a split table loses its meaning. Code-mixed sections split at fenced-code boundaries, then prose and code atoms merge back up to the budget. This was iterative and measured: an earlier "treat any code-containing section as atomic" version left 71% of chunks over budget (largest 2712 tokens, far past MiniLM's \~256 truncation point); the fence-aware rewrite cut that to 17%. The later heading-prefix fix nudged it back to 23.4% (the heading line now costs a few tokens on every split piece, not just the first), a tradeoff I accepted for the retrieval gain it produced.
+**Tables kept whole, code split at fences** — tables are never split, since a split table loses its meaning. Code-mixed sections split at fenced-code boundaries, then prose and code atoms merge back up to the budget. This was iterative and measured: an earlier "treat any code-containing section as atomic" version left 71% of chunks over budget (largest 2712 tokens, far past MiniLM's ~256 truncation point); the fence-aware rewrite cut that to 17%. The later heading-prefix fix nudged it back to 23.4% (the heading line now costs a few tokens on every split piece, not just the first), a tradeoff I accepted for the retrieval gain it produced.
 
 **Heading prefix in the embedded text** — each chunk is embedded as `# {page_title}\n## {heading}\n\n{content}`. The section heading used to live only in metadata and never reached the embedding, leaving pure-code chunks with no natural-language anchor beyond the page title. (`MarkdownHeaderTextSplitter` keeps the raw heading line only on a section's first piece, so the fix strips and re-adds it to every piece.) Re-chunking shifted the corpus from 325 to 320 chunks, so embeddings and the eval set were regenerated to match. The payoff: dense code-chunk MRR rose from 0.735 to 0.773.
 
@@ -146,11 +201,11 @@ Grouped by stage. Each is a choice I can defend, including the ones shaped by ru
 
 **Explicit cosine distance** — collections are created with `hnsw:space=cosine`. ChromaDB defaults to L2; left unset, the `score = 1.0 - distance` conversion in `DenseRetriever` would have silently produced wrong similarities. Caught before any eval ran.
 
-**Dual embedding configs** — `EMBEDDING_CONFIG` selects `text-embedding-3-small` (OpenAI default, \~$0.02/1M tokens) or `all-MiniLM-L6-v2` (local, free, runs and fine-tunes on a laptop), each writing to its own collection so both coexist for comparison. MiniLM's 256-token cap is the tightest constraint across the two, which is what sets the 200-token chunk budget and keeps one corpus usable by every config (a deliberate controlled variable, not an accident).
+**Dual embedding configs** — `EMBEDDING_CONFIG` selects `text-embedding-3-small` (OpenAI default, ~$0.02/1M tokens) or `all-MiniLM-L6-v2` (local, free, runs and fine-tunes on a laptop), each writing to its own collection so both coexist for comparison. MiniLM's 256-token cap is the tightest constraint across the two, which is what sets the 200-token chunk budget and keeps one corpus usable by every config (a deliberate controlled variable, not an accident).
 
-**Dense \+ optional rerank, off by default** — `DenseRetriever` pulls the top 20 by cosine; `RerankingRetriever` wraps it and reranks to the top 5 with `cross-encoder/ms-marco-MiniLM-L-6-v2`. The default is off, set by the headline finding above rather than by assumption.
+**Dense + optional rerank, off by default** — `DenseRetriever` pulls the top 20 by cosine; `RerankingRetriever` wraps it and reranks to the top 5 with `cross-encoder/ms-marco-MiniLM-L-6-v2`. The default is off, set by the headline finding above rather than by assumption.
 
-**Frozen eval set with bootstrap CIs** — `EvalItem`s (query \+ relevant chunk IDs) are generated once via `gpt-4.1-mini` and saved to `data/eval_set.json`; regeneration is skipped unless the corpus itself changes. MRR is the primary metric (alongside hit rate and precision@k), and `bootstrap_ci` reports seeded, deterministic confidence intervals (`random.Random(42)`) because a single small eval run would be misleading on point estimates alone.
+**Frozen eval set with bootstrap CIs** — `EvalItem`s (query + relevant chunk IDs) are generated once via `gpt-4.1-mini` and saved to `data/eval_set.json`; regeneration is skipped unless the corpus itself changes. MRR is the primary metric (alongside hit rate and precision@k), and `bootstrap_ci` reports seeded, deterministic confidence intervals (`random.Random(42)`) because a single small eval run would be misleading on point estimates alone.
 
 ### Agent
 
@@ -164,8 +219,6 @@ Grouped by stage. Each is a choice I can defend, including the ones shaped by ru
 
 Owned, not hidden.
 
-- **Eval-set bias toward lexical echo** — one-question-per-chunk generation makes queries resemble their source chunk, which favors dense retrieval and under-tests reranking (see the headline caveat). A paraphrased, multi-hop eval set is the top next experiment.  
-- **Stranded tiny chunks** — when a section splits into a short prose chunk plus a separate code/table chunk, nothing re-joins them at query time. Measured at \~6% of multi-chunk sections; documented rather than fixed, since force-merging would reintroduce the over-budget problem.  
+- **Eval-set bias toward lexical echo** — one-question-per-chunk generation makes queries resemble their source chunk, which favors dense retrieval and under-tests reranking (see the headline caveat). A paraphrased, multi-hop eval set is the top next experiment.
+- **Stranded tiny chunks** — when a section splits into a short prose chunk plus a separate code/table chunk, nothing re-joins them at query time. Measured at ~6% of multi-chunk sections; documented rather than fixed, since force-merging would reintroduce the over-budget problem.
 - **Heuristic code/prose classification** — the stratified slice labels a chunk "code-containing" by the presence of a fenced block, not hand-labeled ground truth.
-
-
