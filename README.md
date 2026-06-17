@@ -1,6 +1,6 @@
 # HF RAG Agent
 
-**A documentation Q&A agent I measured instead of assumed.** It answers natural-language questions about the Hugging Face Transformers docs, and along the way it puts a common "best practice" — cross-encoder reranking — on trial against a hand-built evaluation set. The reranker lost.
+**A documentation Q&A agent I measured instead of assumed.** It answers natural-language questions about the Hugging Face Transformers docs, and along the way it puts a common "best practice" (cross-encoder reranking) on trial against a hand-built evaluation set. The reranker lost.
 
 Under the hood it's a conversational RAG agent (LangGraph + ChromaDB, dense retrieval with an optional cross-encoder rerank stage) built around one question I wanted a real answer to: *does two-stage retrieval actually beat plain dense retrieval on this corpus, and is the extra cost worth it?* The chunker, the eval harness, and the agent all exist to make that question answerable with evidence rather than vibes.
 
@@ -141,7 +141,7 @@ So, the main difference is in the quantization step and dependencies, but the PE
 
 This is based on the GPTQ and Parameter-efficient fine-tuning sections.
 
-The second question never mentions LoRA, PEFT, or bitsandbytes by name — `rewrite_query()` condenses turn one into a standalone question before retrieval runs, which is what lets the agent connect "GPTQ instead" back to the original setup.
+The second question never mentions LoRA, PEFT, or bitsandbytes by name. `rewrite_query()` condenses turn one into a standalone question before retrieval runs, which is what lets the agent connect "GPTQ instead" back to the original setup.
 
 ---
 
