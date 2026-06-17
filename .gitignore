@@ -1,0 +1,13 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/
+.ipynb_checkpoints/
+.vscode/
+CLAUDE.md
+*.egg-info/
+*off.md
+*off.ipynb
+*off.py
