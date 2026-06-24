@@ -1,6 +1,6 @@
 # HF RAG Agent
 
-A question-answering agent over the Hugging Face Transformers docs. You ask it things in plain language; it retrieves the relevant doc chunks, answers, and handles follow-up questions and multi-hop chains (the kind where the answer is spread across a task guide, the Trainer reference, and the PEFT guide).
+A question-answering agent over the Hugging Face Transformers docs. You ask it things in plain language; it retrieves the relevant doc chunks, answers, and handles follow-up questions and multi-hop chains (the kind where the answer is spread across a task guide, the Trainer reference, and the PEFT guide). I also wrote a related **[Blog Post](https://github.com/vitorlecio/hf_rag_agent/blog_post.md)**.
 
 The part I find more interesting is what happened when I tried to make retrieval "better." I added cross-encoder reranking expecting the usual lift, and on my eval set it made things consistently worse. So the agent ships with reranking off, and the section below explains it.
 
