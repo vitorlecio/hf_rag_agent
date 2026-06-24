@@ -1,0 +1,23 @@
+{
+  "repo": "huggingface/transformers",
+  "commit_sha": "5f98ac53ba599ee759b8ca1bb3eb0074bb9354ed",
+  "files": [
+    "training.md",
+    "trainer.md",
+    "peft.md",
+    "quantization/overview.md",
+    "quantization/bitsandbytes.md",
+    "quantization/gptq.md",
+    "tasks/sequence_classification.md",
+    "tasks/token_classification.md",
+    "tasks/question_answering.md",
+    "tasks/summarization.md",
+    "tasks/translation.md",
+    "tasks/multiple_choice.md",
+    "tasks/masked_language_modeling.md",
+    "tasks/image_classification.md",
+    "tasks/object_detection.md",
+    "tasks/visual_question_answering.md"
+  ],
+  "count": 16
+}

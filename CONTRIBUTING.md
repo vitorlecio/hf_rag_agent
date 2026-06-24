@@ -73,13 +73,17 @@ suite stays fast and deterministic.
 
 The chunk corpus and the frozen eval set are intentionally stable. `hf-eval` skips
 regeneration when `data/eval_set.json` already exists, so the dense-vs-rerank numbers
-stay comparable across runs.
+stay comparable across runs. `data/corpus_manifest.json`, `data/eval_set.json`, and
+`data/eval_results.json` are tracked in git for this reason; the rest of `data/`
+(raw pages, chunks, the ChromaDB collections) is regenerable and stays ignored.
 
 They must be regenerated **together**. Any change to chunking that alters chunk text
 or IDs makes the eval set's chunk-ID references stale. When that happens, delete
 `data/eval_set.json` and the affected ChromaDB collection, then re-run
 `hf-chunk → hf-embed → hf-eval`. Regenerating the corpus without regenerating the
-eval set silently invalidates the comparison.
+eval set silently invalidates the comparison. If you do regenerate it, commit the
+updated `data/eval_set.json` and `data/eval_results.json` so the README numbers and
+the repo stay in sync.
 
 ## Submitting changes
 

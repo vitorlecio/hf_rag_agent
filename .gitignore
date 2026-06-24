@@ -3,7 +3,10 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-data/
+data/*
+!data/corpus_manifest.json
+!data/eval_set.json
+!data/eval_results.json
 .ipynb_checkpoints/
 .vscode/
 CLAUDE.md

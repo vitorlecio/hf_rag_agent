@@ -1,0 +1,48 @@
+{
+  "n_queries": 320,
+  "dense": {
+    "k": 5,
+    "mrr": 0.7947916666666667,
+    "hit_rate": 0.95,
+    "precision_at_k": 0.19
+  },
+  "reranking": {
+    "k": 5,
+    "n_candidates": 320,
+    "mrr": 0.7120833333333334,
+    "hit_rate": 0.853125,
+    "precision_at_k": 0.170625
+  },
+  "stratified": {
+    "code": {
+      "n": 211,
+      "mrr": {
+        "dense": 0.7730647709320696,
+        "reranking": 0.6516587677725119
+      },
+      "hit_rate": {
+        "dense": 0.95260663507109,
+        "reranking": 0.8341232227488151
+      },
+      "precision_at_k": {
+        "dense": 0.19052132701421803,
+        "reranking": 0.166824644549763
+      }
+    },
+    "prose": {
+      "n": 109,
+      "mrr": {
+        "dense": 0.8368501529051987,
+        "reranking": 0.8290519877675842
+      },
+      "hit_rate": {
+        "dense": 0.944954128440367,
+        "reranking": 0.8899082568807339
+      },
+      "precision_at_k": {
+        "dense": 0.18899082568807338,
+        "reranking": 0.17798165137614674
+      }
+    }
+  }
+}

@@ -1,0 +1,1922 @@
+[
+  {
+    "query": "What is fine-tuning in the context of HuggingFace Transformers, and how does it differ from pretraining?",
+    "relevant_chunk_ids": [
+      "training_000"
+    ]
+  },
+  {
+    "query": "How do you tokenize the text column of a dataset for fine-tuning a HuggingFace Transformer model, and what parameters should you set to handle input length and remove unnecessary columns?",
+    "relevant_chunk_ids": [
+      "training_001"
+    ]
+  },
+  {
+    "query": "How can I create a test split for evaluating my model when fine-tuning with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "training_002"
+    ]
+  },
+  {
+    "query": "How can I tokenize and preprocess the \"karthiksagarn/astro_horoscope\" dataset for fine-tuning the \"Qwen/Qwen3-0.6B\" model using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "training_003"
+    ]
+  },
+  {
+    "query": "How does DataCollatorForLanguageModeling handle padding when assembling batches, and how can I disable random token masking?",
+    "relevant_chunk_ids": [
+      "training_004"
+    ]
+  },
+  {
+    "query": "How can I load a pretrained model checkpoint for fine-tuning while preserving the original weight data type to optimize memory usage?",
+    "relevant_chunk_ids": [
+      "training_005"
+    ]
+  },
+  {
+    "query": "What are the key `TrainingArguments` options to configure training duration, batch size, learning rate, and mixed precision in HuggingFace Transformers fine-tuning?",
+    "relevant_chunk_ids": [
+      "training_006"
+    ]
+  },
+  {
+    "query": "What training configuration options control when evaluation and checkpoint saving occur during fine-tuning in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "training_007"
+    ]
+  },
+  {
+    "query": "How can I configure the TrainingArguments in HuggingFace Transformers to fine-tune a model with gradient accumulation, bf16 precision, and save the best model at the end?",
+    "relevant_chunk_ids": [
+      "training_008"
+    ]
+  },
+  {
+    "query": "How do you use the HuggingFace `Trainer` class to fine-tune a model and upload it to the Hub?",
+    "relevant_chunk_ids": [
+      "training_009"
+    ]
+  },
+  {
+    "query": "What guides should I read next to learn about customizing Trainer methods, using callbacks, and data collators in HuggingFace Transformers fine-tuning?",
+    "relevant_chunk_ids": [
+      "training_010"
+    ]
+  },
+  {
+    "query": "Where can I find additional training examples for fine-tuning HuggingFace Transformers on different text, audio, vision, and multimodal tasks?",
+    "relevant_chunk_ids": [
+      "training_011"
+    ]
+  },
+  {
+    "query": "What functionalities does the HuggingFace `Trainer` class provide for training and evaluating Transformer models?",
+    "relevant_chunk_ids": [
+      "trainer_000"
+    ]
+  },
+  {
+    "query": "What are the recommended next steps to learn more about fine-tuning and customizing the HuggingFace `Trainer`?",
+    "relevant_chunk_ids": [
+      "trainer_001"
+    ]
+  },
+  {
+    "query": "What are the benefits of using parameter-efficient fine-tuning methods with adapters in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "peft_000"
+    ]
+  },
+  {
+    "query": "How does the HuggingFace Transformers library integrate with the PEFT library for parameter-efficient fine-tuning, and which PEFT methods are supported directly through this integration?",
+    "relevant_chunk_ids": [
+      "peft_001"
+    ]
+  },
+  {
+    "query": "How can I add a LoRA adapter to a HuggingFace causal language model using parameter-efficient fine-tuning?",
+    "relevant_chunk_ids": [
+      "peft_002"
+    ]
+  },
+  {
+    "query": "How can I fully fine-tune specific layers like the language model head alongside an adapter using the `modules_to_save` parameter?",
+    "relevant_chunk_ids": [
+      "peft_003"
+    ]
+  },
+  {
+    "query": "When fine-tuning a model using PEFT with HuggingFace Transformers, how do you specify which layers to adapt if the model does not have predefined target modules?",
+    "relevant_chunk_ids": [
+      "peft_004"
+    ]
+  },
+  {
+    "query": "How do you train a HuggingFace Transformers model with an attached adapter using the Trainer so that only the adapter parameters are updated?",
+    "relevant_chunk_ids": [
+      "peft_005"
+    ]
+  },
+  {
+    "query": "How does the HuggingFace Trainer handle checkpointing when fine-tuning adapters for parameter-efficient training?",
+    "relevant_chunk_ids": [
+      "peft_006"
+    ]
+  },
+  {
+    "query": "How does the HuggingFace Trainer handle resuming training from a checkpoint that contains adapter weights?",
+    "relevant_chunk_ids": [
+      "peft_007"
+    ]
+  },
+  {
+    "query": "How does the HuggingFace Trainer handle checkpoint saving and precision policies when using PEFT adapters with distributed training methods like ZeRO-3, FSDP, and QLoRA?",
+    "relevant_chunk_ids": [
+      "peft_008"
+    ]
+  },
+  {
+    "query": "How does `PreTrainedModel.from_pretrained` automatically load an adapter when given a model repository containing an `adapter_config.json` file?",
+    "relevant_chunk_ids": [
+      "peft_009"
+    ]
+  },
+  {
+    "query": "How do you load an adapter onto an existing HuggingFace Transformer model using the `PeftAdapterMixin`?",
+    "relevant_chunk_ids": [
+      "peft_010"
+    ]
+  },
+  {
+    "query": "How can I load the \"klcsp/gemma7b-lora-alpaca-11-v1\" model with 8-bit quantization and automatic device mapping using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "peft_011"
+    ]
+  },
+  {
+    "query": "How can I add multiple adapters with unique names to a model and switch between them using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "peft_012"
+    ]
+  },
+  {
+    "query": "How can I enable, disable, check active, and remove adapters when managing multiple adapters in a HuggingFace Transformers model?",
+    "relevant_chunk_ids": [
+      "peft_013"
+    ]
+  },
+  {
+    "query": "How can I delete a specific adapter, like \"adapter_1\", from my model using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "peft_014"
+    ]
+  },
+  {
+    "query": "How can I efficiently switch between LoRA adapters at inference time without triggering model recompilation or allocating new memory?",
+    "relevant_chunk_ids": [
+      "peft_015"
+    ]
+  },
+  {
+    "query": "How can I hotswap adapters in a HuggingFace Transformer model during parameter-efficient fine-tuning?",
+    "relevant_chunk_ids": [
+      "peft_016"
+    ]
+  },
+  {
+    "query": "When using torch.compile with PEFT adapters in HuggingFace Transformers, when should I call `enable_peft_hotswap` to ensure efficient adapter loading and hotswapping?",
+    "relevant_chunk_ids": [
+      "peft_017"
+    ]
+  },
+  {
+    "query": "What does the `target_rank` argument control when loading LoRA adapters in parameter-efficient fine-tuning?",
+    "relevant_chunk_ids": [
+      "peft_018"
+    ]
+  },
+  {
+    "query": "How can I detect unexpected recompilation when using parameter-efficient fine-tuning with torch.compile in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "peft_019"
+    ]
+  },
+  {
+    "query": "What resources are recommended for learning about parameter-efficient fine-tuning methods and hotswapping in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "peft_020"
+    ]
+  },
+  {
+    "query": "Which quantization methods supported by HuggingFace Transformers offer on-the-fly quantization and are compatible with Metal (Apple Silicon) hardware?",
+    "relevant_chunk_ids": [
+      "quantization_overview_000"
+    ]
+  },
+  {
+    "query": "Where can I find beginner-friendly courses on quantization recommended by Hugging Face?",
+    "relevant_chunk_ids": [
+      "quantization_overview_001"
+    ]
+  },
+  {
+    "query": "What community spaces and notebooks does HuggingFace recommend for a user-friendly quantization experience?",
+    "relevant_chunk_ids": [
+      "quantization_overview_002"
+    ]
+  },
+  {
+    "query": "What quantization tools and features does the bitsandbytes library provide for working with large language models in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_000"
+    ]
+  },
+  {
+    "query": "What are the differences between LLM.int8() and QLoRA quantization methods in the Bitsandbytes library?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_001"
+    ]
+  },
+  {
+    "query": "How do I install bitsandbytes along with transformers and accelerate using pip?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_002"
+    ]
+  },
+  {
+    "query": "Which hardware platforms are currently supported by bitsandbytes according to the HuggingFace Transformers documentation?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_003"
+    ]
+  },
+  {
+    "query": "What are the minimum NVIDIA GPU hardware requirements for using 8-bit optimizers, LLM.int8(), and NF4/FP4 quantization with Bitsandbytes on Linux or Windows?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_004"
+    ]
+  },
+  {
+    "query": "On which platforms is the Bitsandbytes Intel GPUs (XPU) backend supported?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_005"
+    ]
+  },
+  {
+    "query": "Which Intel Gaudi processors are supported by the Bitsandbytes backend on Linux x86-64?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_006"
+    ]
+  },
+  {
+    "query": "On which platforms is the Bitsandbytes CPU backend supported?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_007"
+    ]
+  },
+  {
+    "query": "How can I quantize a HuggingFace model using BitsAndBytesConfig when loading it with from_pretrained?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_008"
+    ]
+  },
+  {
+    "query": "How can I quantize a HuggingFace Transformer model to 8-bit and efficiently distribute it across multiple GPUs?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_009"
+    ]
+  },
+  {
+    "query": "How can you change the data type of modules like torch.nn.LayerNorm when using bitsandbytes quantization in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_010"
+    ]
+  },
+  {
+    "query": "How can I load a HuggingFace causal language model in 8-bit precision using BitsAndBytesConfig?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_011"
+    ]
+  },
+  {
+    "query": "Can I push an 8-bit quantized model to the HuggingFace Hub using bitsandbytes, and if so, what are the version requirements?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_012"
+    ]
+  },
+  {
+    "query": "How can I load the \"bigscience/bloom-560m\" model in 8-bit quantized form using the BitsandbytesConfig in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_013"
+    ]
+  },
+  {
+    "query": "How can I quantize a model to 4-bit using Bitsandbytes in HuggingFace Transformers, and what is the recommended setting for device mapping with large models?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_014"
+    ]
+  },
+  {
+    "query": "How can I load a HuggingFace causal language model in 4-bit quantized mode using Bitsandbytes?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_015"
+    ]
+  },
+  {
+    "query": "How can you change the data type of modules like torch.nn.LayerNorm when using bitsandbytes quantization, and what does setting dtype=\"auto\" do?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_016"
+    ]
+  },
+  {
+    "query": "How can I load a HuggingFace causal language model in 4-bit precision using BitsAndBytesConfig?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_017"
+    ]
+  },
+  {
+    "query": "How can I load a 4-bit quantized model using bitsandbytes and push it to the HuggingFace Hub?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_018"
+    ]
+  },
+  {
+    "query": "How can I load an 8-bit quantized model using HuggingFace Transformers without specifying a quantization configuration?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_019"
+    ]
+  },
+  {
+    "query": "What specific features of 8-bit quantization are covered in the Bitsandbytes LLM.int8 section?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_020"
+    ]
+  },
+  {
+    "query": "How can I enable offloading of weights between CPU and GPU for an 8-bit model like bigscience/bloom-1b7 using BitsAndBytesConfig in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_021"
+    ]
+  },
+  {
+    "query": "How can I specify a custom device map to offload parts of a HuggingFace Transformer model to CPU when loading it with bitsandbytes quantization?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_022"
+    ]
+  },
+  {
+    "query": "What is the recommended default outlier threshold value for 8-bit quantization in Bitsandbytes, and how can I adjust it for different model stability?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_023"
+    ]
+  },
+  {
+    "query": "How can I configure the outlier threshold and enable FP32 CPU offload when loading a model in 8-bit precision using Bitsandbytes in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_024"
+    ]
+  },
+  {
+    "query": "For which models should certain modules be skipped during 8-bit quantization using the `llm_int8_skip_modules` parameter in `BitsAndBytesConfig` to avoid instability?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_025"
+    ]
+  },
+  {
+    "query": "How can I configure BitsAndBytes to skip quantizing the \"lm_head\" module when loading a model with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_026"
+    ]
+  },
+  {
+    "query": "How does the PEFT library support fine-tuning large models with 8-bit quantization, and what should I know about using the device_map parameter during training?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_027"
+    ]
+  },
+  {
+    "query": "What specific features of 4-bit quantization are explored in the Bitsandbytes QLoRA section?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_028"
+    ]
+  },
+  {
+    "query": "How can I change the compute data type to bf16 when using BitsAndBytesConfig to speed up computation?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_029"
+    ]
+  },
+  {
+    "query": "What is the recommended 4-bit data type for training base models with weights initialized from a normal distribution using Bitsandbytes in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_030"
+    ]
+  },
+  {
+    "query": "What should I consider regarding `bnb_4bit_quant_type`, `bnb_4bit_compute_dtype`, and `dtype` when performing inference with Bitsandbytes Normal Float 4 (NF4) quantization?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_031"
+    ]
+  },
+  {
+    "query": "What is nested quantization in Bitsandbytes, and how does it help reduce memory usage without affecting performance?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_032"
+    ]
+  },
+  {
+    "query": "How can I enable nested quantization when loading a model in 4-bit precision using the BitsAndBytesConfig in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_033"
+    ]
+  },
+  {
+    "query": "How can I dequantize a bitsandbytes quantized model back to its original precision using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_034"
+    ]
+  },
+  {
+    "query": "Where can I find resources to learn about 8-bit and 4-bit quantization using Hugging Face Transformers and bitsandbytes?",
+    "relevant_chunk_ids": [
+      "quantization_bitsandbytes_035"
+    ]
+  },
+  {
+    "query": "What is the GPTQ algorithm implemented by the GPT-QModel project, and how does it improve memory usage and inference speed in Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_000"
+    ]
+  },
+  {
+    "query": "How do I install and configure GPTQ quantization for a HuggingFace causal language model using the transformers library?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_001"
+    ]
+  },
+  {
+    "query": "How can I use my own dataset for quantizing a model with GPTQ in HuggingFace Transformers, and what is the recommended practice?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_002"
+    ]
+  },
+  {
+    "query": "How can I load a quantized GPT model with HuggingFace Transformers and manage memory allocation if my dataset is too large?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_003"
+    ]
+  },
+  {
+    "query": "How can I load a quantized GPT model with specific device memory limits using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_004"
+    ]
+  },
+  {
+    "query": "How long does it typically take to quantize large models like facebook/opt-350m or a 175B parameter model using GPTQ on common hardware?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_005"
+    ]
+  },
+  {
+    "query": "How do you save and push a quantized GPTQ model and its tokenizer to the HuggingFace Hub?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_006"
+    ]
+  },
+  {
+    "query": "How do you save and reload a GPTQ quantized model using HuggingFace Transformers, and how can you automatically distribute it across GPUs when loading?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_007"
+    ]
+  },
+  {
+    "query": "How can I load a GPTQ quantized causal language model using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_008"
+    ]
+  },
+  {
+    "query": "What is Marlin in the context of GPTQ, and how does it improve inference on NVIDIA A100 GPUs?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_009"
+    ]
+  },
+  {
+    "query": "How can I load a GPTQ-quantized causal language model using the Marlin backend with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_010"
+    ]
+  },
+  {
+    "query": "What are the key improvements and features of GPT-QModel compared to the original AutoGPTQ backend in Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_011"
+    ]
+  },
+  {
+    "query": "What updates have been made to the Marlin kernels and other kernels in the GPTQ section for HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_012"
+    ]
+  },
+  {
+    "query": "Where can I find a hands-on notebook to run GPTQ quantization with PEFT?",
+    "relevant_chunk_ids": [
+      "quantization_gptq_013"
+    ]
+  },
+  {
+    "query": "What is an example of a common NLP task for text classification, and how can I finetune DistilBERT on the IMDb dataset to perform sentiment analysis?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_000"
+    ]
+  },
+  {
+    "query": "What libraries do I need to install before starting a text classification task with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_001"
+    ]
+  },
+  {
+    "query": "How do you load the IMDb dataset using the 🤗 Datasets library for text classification?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_002"
+    ]
+  },
+  {
+    "query": "How can I access and view the first test example from the IMDb dataset for text classification using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_003"
+    ]
+  },
+  {
+    "query": "What are the fields included in the IMDb dataset used for text classification, and what do their values represent?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_004"
+    ]
+  },
+  {
+    "query": "How do you load a DistilBERT tokenizer and create a preprocessing function to tokenize and truncate text sequences for text classification?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_005"
+    ]
+  },
+  {
+    "query": "How can I efficiently preprocess and batch a text classification dataset using HuggingFace Datasets and Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_006"
+    ]
+  },
+  {
+    "query": "How can I load and use the accuracy metric from the 🤗 Evaluate library to evaluate my text classification model's performance?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_007"
+    ]
+  },
+  {
+    "query": "How do you implement a compute_metrics function for evaluating text classification models using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_008"
+    ]
+  },
+  {
+    "query": "How do you create label mappings before training a text classification model with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_009"
+    ]
+  },
+  {
+    "query": "How do you load a pretrained DistilBERT model for sequence classification with two labels using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_010"
+    ]
+  },
+  {
+    "query": "What are the remaining steps to train a text classification model using Hugging Face Transformers, including how to set training arguments and start fine-tuning?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_011"
+    ]
+  },
+  {
+    "query": "How do you set up training arguments and initialize a Trainer for text classification using the HuggingFace Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_012"
+    ]
+  },
+  {
+    "query": "How does the HuggingFace `Trainer` handle padding when you pass a tokenizer during text classification training?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_013"
+    ]
+  },
+  {
+    "query": "How can I use a finetuned HuggingFace Transformers model for text classification inference with a pipeline?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_014"
+    ]
+  },
+  {
+    "query": "How can I perform sentiment analysis inference using a custom model with the HuggingFace Transformers pipeline and also replicate the pipeline steps manually?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_015"
+    ]
+  },
+  {
+    "query": "How can I perform inference with a HuggingFace sequence classification model and convert the predicted class ID to a text label?",
+    "relevant_chunk_ids": [
+      "tasks_sequence_classification_016"
+    ]
+  },
+  {
+    "query": "What is token classification in the context of HuggingFace Transformers, and how is it applied to Named Entity Recognition (NER)?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_000"
+    ]
+  },
+  {
+    "query": "What libraries do I need to install before starting token classification with Hugging Face Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_001"
+    ]
+  },
+  {
+    "query": "How do you load the WNUT 17 dataset for token classification using the 🤗 Datasets library?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_002"
+    ]
+  },
+  {
+    "query": "How can I load and inspect the first example of the WNUT 17 dataset for token classification using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_003"
+    ]
+  },
+  {
+    "query": "How can I convert the numeric `ner_tags` in the WNUT 17 dataset to their corresponding entity label names?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_004"
+    ]
+  },
+  {
+    "query": "What do the prefixes B-, I-, and 0 indicate in the ner_tag labels of the WNUT 17 dataset for token classification?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_005"
+    ]
+  },
+  {
+    "query": "How do you load a DistilBERT tokenizer and preprocess a tokenized input with the `tokens` field using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_006"
+    ]
+  },
+  {
+    "query": "How can I tokenize a list of words for token classification using a HuggingFace tokenizer with the is_split_into_words=True option?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_007"
+    ]
+  },
+  {
+    "query": "How should I preprocess tokenized inputs and labels for token classification to handle special tokens and subword tokenization mismatches?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_008"
+    ]
+  },
+  {
+    "query": "How can I preprocess token classification labels to only label the first token of each word and assign -100 to other subtokens when using DistilBERT?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_009"
+    ]
+  },
+  {
+    "query": "How can I preprocess tokenized inputs and align NER labels correctly for token classification using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_010"
+    ]
+  },
+  {
+    "query": "How can I efficiently preprocess and batch a token classification dataset using HuggingFace Datasets and DataCollatorWithPadding?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_011"
+    ]
+  },
+  {
+    "query": "How do you create a data collator for token classification using the HuggingFace Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_012"
+    ]
+  },
+  {
+    "query": "How can I load and use the seqeval metric with the 🤗 Evaluate library to evaluate a token classification model?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_013"
+    ]
+  },
+  {
+    "query": "How do you use the `~evaluate.EvaluationModule.compute` function to calculate scores for NER label predictions in token classification?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_014"
+    ]
+  },
+  {
+    "query": "How can I compute precision, recall, F1, and accuracy metrics for token classification using the seqeval library with predictions and labels in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_015"
+    ]
+  },
+  {
+    "query": "How do you prepare the `compute_metrics` function for evaluating token classification models in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_016"
+    ]
+  },
+  {
+    "query": "How do you prepare label mappings before training a token classification model with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_017"
+    ]
+  },
+  {
+    "query": "How do you define the label-to-ID and ID-to-label mappings for token classification in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_018"
+    ]
+  },
+  {
+    "query": "How do you load a DistilBERT model for token classification with a specific number of labels and label mappings using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_019"
+    ]
+  },
+  {
+    "query": "What are the final steps to train a token classification model using Hugging Face Transformers' Trainer API?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_020"
+    ]
+  },
+  {
+    "query": "How can I set up and run training for a token classification model using the HuggingFace Trainer with evaluation and saving strategies configured per epoch?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_021"
+    ]
+  },
+  {
+    "query": "How can I share my trained token classification model to the HuggingFace Hub using the Transformers Trainer?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_022"
+    ]
+  },
+  {
+    "query": "How can I use a finetuned HuggingFace Transformers model for token classification inference with a pipeline?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_023"
+    ]
+  },
+  {
+    "query": "How can I perform named entity recognition inference using a custom model with the HuggingFace Transformers pipeline?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_024"
+    ]
+  },
+  {
+    "query": "How can I manually tokenize text and obtain PyTorch tensors for token classification inference using a HuggingFace tokenizer?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_025"
+    ]
+  },
+  {
+    "query": "How do you perform inference with a HuggingFace token classification model and convert the highest probability class index to its corresponding text label?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_026"
+    ]
+  },
+  {
+    "query": "How can you convert model logits to predicted token classes during inference in HuggingFace Transformers for token classification?",
+    "relevant_chunk_ids": [
+      "tasks_token_classification_027"
+    ]
+  },
+  {
+    "query": "What are the two common types of question answering tasks described in the HuggingFace Transformers documentation?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_000"
+    ]
+  },
+  {
+    "query": "What libraries do I need to install before starting question answering with Hugging Face Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_001"
+    ]
+  },
+  {
+    "query": "How can I load a smaller subset of the SQuAD dataset and split it into train and test sets using the 🤗 Datasets library?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_002"
+    ]
+  },
+  {
+    "query": "How can I access the first training example from the SQuAD dataset using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_003"
+    ]
+  },
+  {
+    "query": "What are the key fields provided in the SQuAD dataset for question answering in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_004"
+    ]
+  },
+  {
+    "query": "How do you load a DistilBERT tokenizer to preprocess the question and context fields for question answering?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_005"
+    ]
+  },
+  {
+    "query": "How should I preprocess question answering data when the context is longer than the model's maximum input length?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_006"
+    ]
+  },
+  {
+    "query": "How can I preprocess question-answer pairs to obtain start and end token positions for training a HuggingFace Transformers question answering model?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_007"
+    ]
+  },
+  {
+    "query": "How can I efficiently apply a preprocessing function to an entire dataset using 🤗 Datasets and what does the DefaultDataCollator do differently compared to other data collators in 🤗 Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_008"
+    ]
+  },
+  {
+    "query": "How do you import and initialize the default data collator for preprocessing in HuggingFace Transformers question answering?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_009"
+    ]
+  },
+  {
+    "query": "How do you load DistilBERT for question answering before training using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_010"
+    ]
+  },
+  {
+    "query": "What are the final steps to train a question answering model using HuggingFace Transformers, including how to save and push the model to the Hub?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_011"
+    ]
+  },
+  {
+    "query": "How do you set up and start training a question answering model using the HuggingFace Trainer with specific training arguments like learning rate, batch size, and number of epochs?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_012"
+    ]
+  },
+  {
+    "query": "How can I share my trained question answering model to the HuggingFace Hub using the Transformers Trainer?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_013"
+    ]
+  },
+  {
+    "query": "How does the Hugging Face Trainer handle evaluation loss during question answering model training despite skipping detailed evaluation?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_014"
+    ]
+  },
+  {
+    "query": "How do you prepare a question and context for inference using a finetuned HuggingFace Transformers question answering model?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_015"
+    ]
+  },
+  {
+    "query": "How do you perform inference with a HuggingFace question answering model to obtain the start and end positions of the answer?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_016"
+    ]
+  },
+  {
+    "query": "How can you extract and decode the predicted answer tokens from input IDs during question answering inference using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_question_answering_017"
+    ]
+  },
+  {
+    "query": "What are the two main types of summarization tasks described in the HuggingFace Transformers documentation, and how do they differ?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_000"
+    ]
+  },
+  {
+    "query": "What libraries do I need to install before starting summarization with Hugging Face Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_001"
+    ]
+  },
+  {
+    "query": "How do you load the California state bill subset of the BillSum dataset and split it into train and test sets using the 🤗 Datasets library?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_002"
+    ]
+  },
+  {
+    "query": "What are the key provisions of the California Public Contract Code Section 10295.35 regarding discrimination in state contracts for goods or services of $100,000 or more?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_003"
+    ]
+  },
+  {
+    "query": "What are the two key fields in the BillSum dataset used for summarization tasks?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_004"
+    ]
+  },
+  {
+    "query": "How do you preprocess text and summary data for a T5 model when preparing for a summarization task using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_005"
+    ]
+  },
+  {
+    "query": "How can I preprocess a dataset for summarization using a prefix and the HuggingFace tokenizer before training a model?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_006"
+    ]
+  },
+  {
+    "query": "How can I efficiently create batches with dynamic padding for summarization using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_007"
+    ]
+  },
+  {
+    "query": "How can I load and compute the ROUGE metric for evaluating a summarization model using the 🤗 Evaluate library?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_008"
+    ]
+  },
+  {
+    "query": "How can I implement a compute_metrics function to evaluate summarization predictions using ROUGE scores with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_009"
+    ]
+  },
+  {
+    "query": "How do you proceed with your `compute_metrics` function after setting it up for training in summarization evaluation?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_010"
+    ]
+  },
+  {
+    "query": "How do I load a T5 model for summarization training using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_011"
+    ]
+  },
+  {
+    "query": "What are the final steps to train a summarization model using HuggingFace Transformers' Seq2SeqTrainer?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_012"
+    ]
+  },
+  {
+    "query": "How can I set up and run training for a summarization model using Seq2SeqTrainingArguments and Seq2SeqTrainer in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_013"
+    ]
+  },
+  {
+    "query": "How can I share my trained summarization model to the HuggingFace Hub using the Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_014"
+    ]
+  },
+  {
+    "query": "How do you format the input text for summarization inference when using a finetuned T5 model?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_015"
+    ]
+  },
+  {
+    "query": "How do you prepare input tokens for summarization inference using a custom HuggingFace model?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_016"
+    ]
+  },
+  {
+    "query": "How can I generate a summary using a fine-tuned Seq2Seq model with HuggingFace Transformers and decode the output into readable text?",
+    "relevant_chunk_ids": [
+      "tasks_summarization_017"
+    ]
+  },
+  {
+    "query": "What is the sequence-to-sequence framework used for in translation tasks according to the HuggingFace Transformers documentation?",
+    "relevant_chunk_ids": [
+      "tasks_translation_000"
+    ]
+  },
+  {
+    "query": "What libraries do I need to install before using my finetuned translation model for inference with Hugging Face Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_001"
+    ]
+  },
+  {
+    "query": "How do I load the English-French subset of the OPUS Books dataset and split it into training and test sets using the 🤗 Datasets library?",
+    "relevant_chunk_ids": [
+      "tasks_translation_002"
+    ]
+  },
+  {
+    "query": "How can I access the English and French translations of the first example in the OPUS Books dataset using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_003"
+    ]
+  },
+  {
+    "query": "How do you load a T5 tokenizer for processing English-French language pairs using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_004"
+    ]
+  },
+  {
+    "query": "How should I preprocess input text for a T5 translation task to French using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_005"
+    ]
+  },
+  {
+    "query": "How can I preprocess English-to-French translation examples using a prefix and tokenizer in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_006"
+    ]
+  },
+  {
+    "query": "How can I efficiently preprocess and batch a translation dataset using HuggingFace Datasets and Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_007"
+    ]
+  },
+  {
+    "query": "How do you create a data collator for sequence-to-sequence tasks using a tokenizer and model checkpoint in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_008"
+    ]
+  },
+  {
+    "query": "How can I load and use the SacreBLEU metric from the 🤗 Evaluate library to evaluate a translation model's performance?",
+    "relevant_chunk_ids": [
+      "tasks_translation_009"
+    ]
+  },
+  {
+    "query": "How can I implement a compute_metrics function to evaluate translation predictions using BLEU score with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_010"
+    ]
+  },
+  {
+    "query": "How do you prepare the `compute_metrics` function for evaluation in a translation task using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_translation_011"
+    ]
+  },
+  {
+    "query": "How do you load a T5 model for training using HuggingFace Transformers' AutoModelForSeq2SeqLM?",
+    "relevant_chunk_ids": [
+      "tasks_translation_012"
+    ]
+  },
+  {
+    "query": "What are the final steps to train a translation model using HuggingFace Transformers' Seq2SeqTrainer?",
+    "relevant_chunk_ids": [
+      "tasks_translation_013"
+    ]
+  },
+  {
+    "query": "How do you set up Seq2SeqTrainingArguments and Seq2SeqTrainer to train a translation model with evaluation at each epoch and mixed precision enabled?",
+    "relevant_chunk_ids": [
+      "tasks_translation_014"
+    ]
+  },
+  {
+    "query": "How can I share my trained translation model to the HuggingFace Hub using the Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_translation_015"
+    ]
+  },
+  {
+    "query": "How do you prepare and tokenize input text for translation inference using a finetuned T5 model?",
+    "relevant_chunk_ids": [
+      "tasks_translation_016"
+    ]
+  },
+  {
+    "query": "How can I use the `generate` method from HuggingFace Transformers to perform translation inference with custom generation parameters?",
+    "relevant_chunk_ids": [
+      "tasks_translation_017"
+    ]
+  },
+  {
+    "query": "How can I decode the output tokens to get the translated text without special tokens using the HuggingFace Transformers tokenizer?",
+    "relevant_chunk_ids": [
+      "tasks_translation_018"
+    ]
+  },
+  {
+    "query": "How can I finetune a BERT model on the SWAG dataset to perform multiple choice tasks using Hugging Face Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_000"
+    ]
+  },
+  {
+    "query": "How do you log in to the HuggingFace Hub from a notebook?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_001"
+    ]
+  },
+  {
+    "query": "How do you load the regular configuration of the SWAG dataset using the 🤗 Datasets library?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_002"
+    ]
+  },
+  {
+    "query": "How is the first example in the SWAG training dataset structured when loaded in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_003"
+    ]
+  },
+  {
+    "query": "What do the `sent1`, `sent2`, `ending`, and `label` fields represent in the SWAG dataset?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_004"
+    ]
+  },
+  {
+    "query": "How do you preprocess data for a multiple choice task using a BERT tokenizer in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_005"
+    ]
+  },
+  {
+    "query": "How can I preprocess multiple-choice question examples for a HuggingFace tokenizer to handle four answer endings per question?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_006"
+    ]
+  },
+  {
+    "query": "How can I efficiently apply a preprocessing function to an entire dataset and handle dynamic padding for multiple choice tasks using HuggingFace Datasets and DataCollatorForMultipleChoice?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_007"
+    ]
+  },
+  {
+    "query": "How do you initialize a DataCollatorForMultipleChoice with a tokenizer in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_008"
+    ]
+  },
+  {
+    "query": "How can I load and use the accuracy metric from the 🤗 Evaluate library to evaluate my model's performance during training?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_009"
+    ]
+  },
+  {
+    "query": "How do you implement a compute_metrics function to evaluate accuracy for a multiple choice task using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_010"
+    ]
+  },
+  {
+    "query": "How do you load a BERT model for multiple choice tasks using HuggingFace Transformers before training?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_011"
+    ]
+  },
+  {
+    "query": "What are the three main steps to train a model using the Hugging Face `Trainer` with `TrainingArguments`?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_012"
+    ]
+  },
+  {
+    "query": "How do you configure the TrainingArguments and Trainer to train a multiple-choice model with evaluation and saving at each epoch using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_013"
+    ]
+  },
+  {
+    "query": "How can I share my trained multiple choice model to the Hugging Face Hub using the Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_014"
+    ]
+  },
+  {
+    "query": "How do you prepare text and candidate answers for inference after finetuning a model in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_015"
+    ]
+  },
+  {
+    "query": "How do you prepare inputs and labels using AutoTokenizer for multiple-choice inference with a HuggingFace Transformers model?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_016"
+    ]
+  },
+  {
+    "query": "How can I use the HuggingFace Transformers AutoModelForMultipleChoice class to perform inference and get the predicted class from model logits?",
+    "relevant_chunk_ids": [
+      "tasks_multiple_choice_017"
+    ]
+  },
+  {
+    "query": "What is masked language modeling and why is it useful for tasks requiring contextual understanding?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_000"
+    ]
+  },
+  {
+    "query": "What libraries do I need to install before using a finetuned Hugging Face model for masked language modeling inference?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_001"
+    ]
+  },
+  {
+    "query": "How do I load the first 5000 examples from the ELI5-Category dataset and split it into training and test sets using the 🤗 Datasets library?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_002"
+    ]
+  },
+  {
+    "query": "How can I load and inspect the first example from the ELI5 dataset using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_003"
+    ]
+  },
+  {
+    "query": "What field from the ELI5 dataset is primarily used for masked language modeling tasks, and why are labels not needed?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_004"
+    ]
+  },
+  {
+    "query": "How do you load a DistilRoBERTa tokenizer and preprocess nested text fields for masked language modeling using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_005"
+    ]
+  },
+  {
+    "query": "How can I preprocess the ELI5 dataset for masked language modeling using the HuggingFace Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_006"
+    ]
+  },
+  {
+    "query": "How should you preprocess a dataset with a list of answer strings for masked language modeling using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_007"
+    ]
+  },
+  {
+    "query": "How can you speed up preprocessing when applying a function over an entire dataset using the 🤗 Datasets `map` method?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_008"
+    ]
+  },
+  {
+    "query": "How can I preprocess a dataset with token sequences longer than the model's maximum input length for masked language modeling using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_009"
+    ]
+  },
+  {
+    "query": "How can I preprocess text data into fixed-size blocks for masked language modeling using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_010"
+    ]
+  },
+  {
+    "query": "How do you preprocess a dataset for masked language modeling using HuggingFace Transformers, including batching and dynamic padding?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_011"
+    ]
+  },
+  {
+    "query": "How do you set up a data collator for masked language modeling using a HuggingFace tokenizer?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_012"
+    ]
+  },
+  {
+    "query": "How do you load a DistilRoBERTa model for masked language modeling using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_013"
+    ]
+  },
+  {
+    "query": "What are the final steps to train a masked language model using Hugging Face Transformers, including how to save and push the model to the Hub?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_014"
+    ]
+  },
+  {
+    "query": "How can I set up and start training a masked language model using the HuggingFace Trainer API with evaluation at each epoch?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_015"
+    ]
+  },
+  {
+    "query": "How can I evaluate the perplexity of my masked language model using the HuggingFace Transformers Trainer after training?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_016"
+    ]
+  },
+  {
+    "query": "Where can I find a detailed example of how to finetune a model for masked language modeling using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_017"
+    ]
+  },
+  {
+    "query": "How can I use a finetuned masked language model with the HuggingFace Transformers pipeline to fill in a blank in a sentence?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_018"
+    ]
+  },
+  {
+    "query": "How can I use the HuggingFace Transformers pipeline to perform masked language modeling inference and get the top 3 predictions?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_019"
+    ]
+  },
+  {
+    "query": "How do you tokenize text and identify the position of the <mask> token for masked language modeling inference using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_020"
+    ]
+  },
+  {
+    "query": "How can I perform inference with a masked language model using HuggingFace Transformers to obtain the top three predicted tokens for a masked position?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_021"
+    ]
+  },
+  {
+    "query": "How can I retrieve and display the top 3 token predictions for a masked token during inference using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_masked_language_modeling_022"
+    ]
+  },
+  {
+    "query": "What are some practical applications of image classification mentioned in the HuggingFace Transformers image classification guide?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_000"
+    ]
+  },
+  {
+    "query": "What libraries do I need to install before starting image classification with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_001"
+    ]
+  },
+  {
+    "query": "How can I load a smaller subset of the Food-101 dataset and split it into train and test sets using the 🤗 Datasets library?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_002"
+    ]
+  },
+  {
+    "query": "How can I access the image and label fields of the first example in the Food-101 training dataset using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_003"
+    ]
+  },
+  {
+    "query": "How can I create dictionaries to map label names to IDs and IDs to label names for the Food-101 dataset in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_004"
+    ]
+  },
+  {
+    "query": "How do you load a ViT image processor for preprocessing images using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_005"
+    ]
+  },
+  {
+    "query": "How can I create a preprocessing function for image classification that applies random resized cropping, tensor conversion, and normalization using a HuggingFace image processor's size and mean/std values?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_006"
+    ]
+  },
+  {
+    "query": "How can I apply a preprocessing function on the fly to an entire image classification dataset using 🤗 Datasets and then create a batch without additional padding in 🤗 Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_007"
+    ]
+  },
+  {
+    "query": "How do you import and initialize the default data collator for image classification preprocessing in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_008"
+    ]
+  },
+  {
+    "query": "How can I load and use the accuracy metric from the 🤗 Evaluate library to evaluate my image classification model's performance?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_009"
+    ]
+  },
+  {
+    "query": "How do you define a `compute_metrics` function for evaluating image classification predictions using accuracy in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_010"
+    ]
+  },
+  {
+    "query": "How do I load a ViT model for image classification with specific label mappings using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_011"
+    ]
+  },
+  {
+    "query": "What training arguments must I set in `TrainingArguments` to ensure the `image` column is preserved and the model is saved correctly when training an image classification model with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_012"
+    ]
+  },
+  {
+    "query": "How do you start fine-tuning your model for image classification using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_013"
+    ]
+  },
+  {
+    "query": "How can I set up training arguments and initialize a Trainer for image classification using HuggingFace Transformers to train a model on the Food101 dataset?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_014"
+    ]
+  },
+  {
+    "query": "How can I share my trained image classification model to the HuggingFace Hub using the Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_015"
+    ]
+  },
+  {
+    "query": "How can I load an image from the \"ethz/food101\" dataset to run inference after fine-tuning a HuggingFace Transformers model?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_016"
+    ]
+  },
+  {
+    "query": "How can I perform inference with my finetuned image classification model using a HuggingFace `pipeline`?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_017"
+    ]
+  },
+  {
+    "query": "How can I use the HuggingFace Transformers pipeline to perform image classification with my custom model?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_018"
+    ]
+  },
+  {
+    "query": "How can I manually preprocess an image and prepare inputs as PyTorch tensors for image classification using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_019"
+    ]
+  },
+  {
+    "query": "How can I perform inference with a HuggingFace image classification model and obtain the predicted label using the model's id2label mapping?",
+    "relevant_chunk_ids": [
+      "tasks_image_classification_020"
+    ]
+  },
+  {
+    "query": "What is object detection in computer vision, and what kind of outputs do object detection models provide?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_000"
+    ]
+  },
+  {
+    "query": "How can I finetune the RF-DETR model on the mobile-ui-design dataset to detect UI elements in mobile app screenshots?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_001"
+    ]
+  },
+  {
+    "query": "How do you log in to your Hugging Face account within a notebook to upload an object detection model?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_002"
+    ]
+  },
+  {
+    "query": "How do I load the mobile-ui-design dataset and extract category labels for object detection of UI elements?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_003"
+    ]
+  },
+  {
+    "query": "How can I load the mobile-ui-design dataset and extract the object categories with their corresponding label-to-id mappings?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_004"
+    ]
+  },
+  {
+    "query": "How do you preprocess the mobile-ui-design dataset for object detection in terms of category conversion, area computation, and bounding box filtering?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_005"
+    ]
+  },
+  {
+    "query": "How can I preprocess and split the mobile-ui-design dataset for object detection using bounding boxes and categories in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_006"
+    ]
+  },
+  {
+    "query": "How does the `AutoImageProcessor` preprocess image data for object detection models in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_007"
+    ]
+  },
+  {
+    "query": "What format does the `image_processor` expect for annotations when preprocessing data for object detection?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_008"
+    ]
+  },
+  {
+    "query": "How can I preprocess image data and annotations into COCO format for object detection using a HuggingFace image processor?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_009"
+    ]
+  },
+  {
+    "query": "Why should random augmentations be applied only to the training split and not the validation split in object detection data preprocessing?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_010"
+    ]
+  },
+  {
+    "query": "How can I apply data augmentation with albumentations to object detection training data and prepare it for a HuggingFace image processor?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_011"
+    ]
+  },
+  {
+    "query": "How should data augmentation be applied differently to training and validation splits in HuggingFace Transformers object detection tasks?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_012"
+    ]
+  },
+  {
+    "query": "How can I write a collate function in PyTorch to batch pixel values, labels, and optionally pixel masks for object detection data augmentation?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_013"
+    ]
+  },
+  {
+    "query": "How can I prepare a function to compute mean average precision (mAP) for object detection models using COCO-style metrics with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_014"
+    ]
+  },
+  {
+    "query": "How can I convert bounding boxes from YOLO format to Pascal VOC format using HuggingFace Transformers utilities?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_015"
+    ]
+  },
+  {
+    "query": "How do you prepare the function to compute mAP in the evaluation loop for object detection using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_016"
+    ]
+  },
+  {
+    "query": "How can I implement a function to compute mean Average Precision (mAP) for object detection evaluation using HuggingFace Transformers and torchmetrics?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_017"
+    ]
+  },
+  {
+    "query": "What are the steps to train an object detection model using HuggingFace Transformers, and what hardware requirement should I be aware of?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_018"
+    ]
+  },
+  {
+    "query": "How do you load a pretrained object detection model in HuggingFace Transformers while replacing the classification head using `ignore_mismatched_sizes=True`?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_019"
+    ]
+  },
+  {
+    "query": "What are the important `TrainingArguments` settings to consider when training an object detection model with HuggingFace Transformers to ensure proper evaluation and data handling?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_020"
+    ]
+  },
+  {
+    "query": "How do you enable pushing a trained object detection model to the Hugging Face Hub?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_021"
+    ]
+  },
+  {
+    "query": "What are some key TrainingArguments parameters to set when fine-tuning an object detection model with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_022"
+    ]
+  },
+  {
+    "query": "How do you initiate training of an object detection model using the HuggingFace Transformers Trainer class?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_023"
+    ]
+  },
+  {
+    "query": "How can I interpret the training progress and evaluation metrics when training an object detection model using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_024"
+    ]
+  },
+  {
+    "query": "What metrics are shown in the training results table for the object detection model?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_025"
+    ]
+  },
+  {
+    "query": "What are some example metric values reported during training of an object detection model in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_026"
+    ]
+  },
+  {
+    "query": "What are the numerical training metrics reported in the object detection model training table?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_027"
+    ]
+  },
+  {
+    "query": "What are some example metric values reported during the training of an object detection model in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_028"
+    ]
+  },
+  {
+    "query": "What are some example metric values reported during the training of an object detection model in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_029"
+    ]
+  },
+  {
+    "query": "What are some example metric values reported during the training of an object detection model in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_030"
+    ]
+  },
+  {
+    "query": "What are some example metric values reported during the training of an object detection model in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_031"
+    ]
+  },
+  {
+    "query": "How can I push my object detection model checkpoints and the final model to the Hugging Face Hub during and after training using the Transformers Trainer?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_032"
+    ]
+  },
+  {
+    "query": "How can I evaluate an object detection model using the HuggingFace Trainer and what metrics are returned?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_033"
+    ]
+  },
+  {
+    "query": "How can I improve the evaluation results of an object detection model using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_034"
+    ]
+  },
+  {
+    "query": "How can I perform inference with a finetuned Hugging Face object detection model using an image from the \"merve/mobile-ui-design\" dataset?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_035"
+    ]
+  },
+  {
+    "query": "How do you load a pretrained object detection model and image processor for inference using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_036"
+    ]
+  },
+  {
+    "query": "How can I perform object detection inference using a HuggingFace Transformers model and process the results to get detected labels, confidence scores, and bounding box locations?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_037"
+    ]
+  },
+  {
+    "query": "How can I visualize the results of object detection inference using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_038"
+    ]
+  },
+  {
+    "query": "How can I draw labeled bounding boxes with different colors on an image using the results from a HuggingFace Transformers object detection model?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_039"
+    ]
+  },
+  {
+    "query": "What do the example images in the HuggingFace Transformers object detection inference documentation illustrate?",
+    "relevant_chunk_ids": [
+      "tasks_object_detection_040"
+    ]
+  },
+  {
+    "query": "What is Visual Question Answering (VQA) and what are some practical use cases for it?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_000"
+    ]
+  },
+  {
+    "query": "How can I fine-tune a Visual Question Answering model using ViLT on the Graphcore/vqa dataset?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_001"
+    ]
+  },
+  {
+    "query": "How does the ViLT model approach Visual Question Answering during fine-tuning?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_002"
+    ]
+  },
+  {
+    "query": "How do you log in to your Hugging Face account within a notebook to upload a fine-tuned ViLT model to the Hub?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_003"
+    ]
+  },
+  {
+    "query": "Where can I find the full Graphcore/vqa dataset used for visual question answering in the HuggingFace Transformers guide?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_004"
+    ]
+  },
+  {
+    "query": "How can I load the first 200 examples from the validation split of the Graphcore VQA dataset and what features does this dataset include?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_005"
+    ]
+  },
+  {
+    "query": "What is the structure and content of a single data example in the Visual Question Answering dataset used in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_006"
+    ]
+  },
+  {
+    "query": "What features are relevant for the Visual Question Answering task and how can I remove unnecessary features from the dataset?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_007"
+    ]
+  },
+  {
+    "query": "Why does the `label` feature in the Visual Question Answering dataset contain multiple answers for the same question?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_008"
+    ]
+  },
+  {
+    "query": "How does the Visual Question Answering dataset handle multiple valid answers in its annotations?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_009"
+    ]
+  },
+  {
+    "query": "How can I create dictionaries that map label names to integers and vice versa for visual question answering using a HuggingFace dataset?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_010"
+    ]
+  },
+  {
+    "query": "How can string answers be processed for easier preprocessing in visual question answering datasets?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_011"
+    ]
+  },
+  {
+    "query": "How can I preprocess a Visual Question Answering dataset to replace label strings with IDs and flatten the dataset using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_012"
+    ]
+  },
+  {
+    "query": "How do you load a ViLT processor to preprocess image and text data for Visual Question Answering using HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_013"
+    ]
+  },
+  {
+    "query": "How does the `ViltProcessor` preprocess images and questions for Visual Question Answering in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_014"
+    ]
+  },
+  {
+    "query": "How does the preprocessing function apply the processor to images and questions in the Visual Question Answering task?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_015"
+    ]
+  },
+  {
+    "query": "How can I preprocess image and question data along with label weights for Visual Question Answering using a HuggingFace processor in PyTorch?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_016"
+    ]
+  },
+  {
+    "query": "How can I efficiently apply a preprocessing function to an entire dataset when preparing data for Visual Question Answering using HuggingFace Datasets?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_017"
+    ]
+  },
+  {
+    "query": "How do you preprocess a dataset for visual question answering using the HuggingFace Transformers library to remove specific columns and prepare features like input_ids and pixel_values?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_018"
+    ]
+  },
+  {
+    "query": "How do you initialize a data collator for preprocessing data in HuggingFace Transformers' Visual Question Answering?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_019"
+    ]
+  },
+  {
+    "query": "How do you load the ViLT model for visual question answering with specific label mappings before training?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_020"
+    ]
+  },
+  {
+    "query": "How do you set up the training arguments for fine-tuning a Visual Question Answering model using the HuggingFace Transformers Trainer?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_021"
+    ]
+  },
+  {
+    "query": "How do you set up and start training a HuggingFace Transformer model for Visual Question Answering using the Trainer class?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_022"
+    ]
+  },
+  {
+    "query": "How do you perform inference with a fine-tuned ViLT model for visual question answering using the HuggingFace Transformers library?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_023"
+    ]
+  },
+  {
+    "query": "How do you perform inference for visual question answering using the ViltProcessor and ViltForQuestionAnswering models in HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_024"
+    ]
+  },
+  {
+    "query": "How does BLIP-2 approach visual question answering differently from previous models?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_025"
+    ]
+  },
+  {
+    "query": "How can I load and run the Salesforce/blip2-opt-2.7b model for zero-shot visual question answering using a GPU with HuggingFace Transformers?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_026"
+    ]
+  },
+  {
+    "query": "How do you format the textual prompt when using BLIP-2 for zero-shot visual question answering?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_027"
+    ]
+  },
+  {
+    "query": "How can I perform zero-shot visual question answering using a HuggingFace Transformer model with an image and text prompt?",
+    "relevant_chunk_ids": [
+      "tasks_visual_question_answering_028"
+    ]
+  }
+]
