@@ -138,11 +138,6 @@ class Chunker:
         logger.info(f"Saved {len(chunks)} chunks to {path}")
 
 
-def _has_atomic_block(text: str) -> bool:
-    """Return True if text contains a fenced code block or markdown table."""
-    return "```" in text or bool(re.search(r"^\|", text, re.MULTILINE))
-
-
 def _make_chunk_id(page_path: str, idx: int) -> str:
     base = page_path.replace("/", "_").replace(".md", "")
     return f"{base}_{idx:03d}"

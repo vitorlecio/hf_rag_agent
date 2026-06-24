@@ -1,6 +1,6 @@
 import pytest
 
-from hf_rag.ingestion.chunker import Chunk, Chunker, _has_atomic_block
+from hf_rag.ingestion.chunker import Chunk, Chunker
 from hf_rag.ingestion.fetcher import RawPage
 
 
@@ -259,22 +259,3 @@ class TestTokenCount:
         for c in chunks:
             expected = len(chunker._tokenizer.encode(c.content))
             assert c.token_count == expected
-
-
-# ---------------------------------------------------------------------------
-# _has_atomic_block (unit)
-# ---------------------------------------------------------------------------
-
-
-class TestHasAtomicBlock:
-    def test_detects_fenced_code_block(self) -> None:
-        assert _has_atomic_block("Some text.\n```python\nx = 1\n```\n")
-
-    def test_detects_table(self) -> None:
-        assert _has_atomic_block("| Col A | Col B |\n|-------|-------|\n| 1 | 2 |\n")
-
-    def test_plain_prose_is_not_atomic(self) -> None:
-        assert not _has_atomic_block("Just some plain text with no special blocks.")
-
-    def test_inline_backtick_is_not_atomic(self) -> None:
-        assert not _has_atomic_block("Use `my_fn()` to call the function.")
