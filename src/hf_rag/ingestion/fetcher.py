@@ -33,13 +33,10 @@ FILES: list[str] = [
     "tasks/translation.md",
     "tasks/multiple_choice.md",
     "tasks/masked_language_modeling.md",
-    "tasks/causal_language_modeling.md",
     # Vision task guides
     "tasks/image_classification.md",
     "tasks/object_detection.md",
     "tasks/visual_question_answering.md",
-    # Performance guide
-    "perf_train_gpu_one.md",
 ]
 
 

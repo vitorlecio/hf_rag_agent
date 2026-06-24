@@ -21,7 +21,7 @@ from hf_rag.retrieval.reranking import RerankingRetriever
 
 def build_agent(use_reranking: bool = False) -> CompiledStateGraph:
     """use_reranking defaults to False — hf-eval showed dense-only beats dense+rerank
-    on this corpus (MRR 0.776 vs 0.715), see README."""
+    on this corpus (MRR 0.795 vs 0.712), see README."""
     llm = ChatOpenAI(model=GENERATOR_MODEL, temperature=0.1)
 
     client = chromadb.PersistentClient(path=str(CHROMA_DIR))
